@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+    background-color:  #1d351d;
+    background-image: radial-gradient(circle, #1d351d, #0f1e0f);
+    margin: 0;
+    text-align: center;
+    min-height: 100vh;
+}
+
+header {   
+    color: rgb(250, 245, 245);
+    font-size: 20px;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow:
+    1px 1px 1px brown,
+    2px 2px 1px brown;
+}
+
+h2{
+    font-family: "Lobster", sans-serif;
+    color: white;
+    font-weight: 100;
+}
+
+.christmas-tree-picture {
+    width: 40vh;
+    height: auto;
+}
+
+.gift-button {
+    border-radius: 5px;
+    background-image: linear-gradient(in oklab to left, blue, red);
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "Lobster", sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    gap: 10px;
+
+}
+
+.gift-button:hover {
+    background-image: linear-gradient(to right, #ff4500, #007bff);
+    transform: scale(1.05);
+}
+  
+
+footer {
+    color: white;
+    font-family: "Lobster", sans-serif;
+    position: absolute;
+    width: 100%;
+    text-shadow:
+    1px 1px 1px rgb(42, 165, 69),
+    2px 2px 1px rgb(42, 91, 165);
+  }
