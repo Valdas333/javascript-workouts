@@ -81,6 +81,7 @@ body {
     height: 25px;
     color: #262626;
   }
+  
   .calendar__number:nth-child(7n) {
     color: #ff685d;
     font-weight: 700;
