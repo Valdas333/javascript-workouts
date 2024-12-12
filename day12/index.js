@@ -13,11 +13,21 @@ async function queryDatabase() {
   );
 
   const leisureId = await db.get(
-    "SELECT * FROM gift_categories LEFT JOIN gifts ON gift_categories.gift_category_id = gifts.gift_category_id WHERE gift_categories.name = 'leisure'"
+    `SELECT * FROM gift_categories 
+    LEFT JOIN gifts
+      ON gift_categories.gift_category_id = gifts.gift_category_id 
+    WHERE gift_categories.name = 'leisure'`
   );
 
   const result = await db.get(
-    "SELECT SUM(retail_price) as total FROM customer_gift_purchases LEFT JOIN gifts ON customer_gift_purchases.gift_id = gifts.gift_id LEFT JOIN gift_categories ON gifts.gift_category_id = gift_categories.gift_category_id WHERE customer_gift_purchases.customer_id = 2 AND gift_categories.name = 'leisure'"
+    `SELECT SUM(retail_price) as total 
+    FROM customer_gift_purchases
+    LEFT JOIN gifts 
+      ON customer_gift_purchases.gift_id = gifts.gift_id
+    LEFT JOIN gift_categories 
+      ON gifts.gift_category_id = gift_categories.gift_category_id 
+    WHERE customer_gift_purchases.customer_id = 2 
+      AND gift_categories.name = 'leisure'`
   );
 
   console.log(categoryID);
