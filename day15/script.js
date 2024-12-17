@@ -38,5 +38,10 @@ function getItemPriceByName(itemName) {
   }
   return `No treasures found with ${itemName} name!`;
 }
-const price = getItemPriceByName(" ");
+
+const getItemPriceByNameV2 = (name) =>
+  items.find((item) => item.name === name)?.price ?? "Item not found";
+
+console.log(getItemPriceByName(1));
+const price = getItemPriceByNameV2(1);
 console.log(price);
