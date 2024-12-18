@@ -6,6 +6,7 @@ document.querySelector(".flavors").addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     const userInput = event.target.value.trim();
     const flavors = userInput.split(",").map((flavor) => flavor.trim());
+    const header = `<h2>🎅 Froyo Flavor Totals: 🎅</h2>`;
 
     if (!userInput) {
       alert("Please enter at least one flavor!");
@@ -24,7 +25,7 @@ document.querySelector(".flavors").addEventListener("keydown", (event) => {
       flavorCounts[flavor] = (flavorCounts[flavor] || 0) + 1;
     }
 
-    container.innerHTML = Object.entries(flavorCounts)
+    const flavorItems = Object.entries(flavorCounts)
       .map(
         ([flavor, count]) =>
           `<p class="flavor-item">${toTitleCase(flavor)}: ${
@@ -32,6 +33,8 @@ document.querySelector(".flavors").addEventListener("keydown", (event) => {
           }</p>`
       )
       .join("");
+
+    container.innerHTML = header + flavorItems;
 
     document.querySelector(".flavors").value = "";
   }
