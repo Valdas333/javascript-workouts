@@ -283,3 +283,30 @@ function printBookAuthorsCount(title, ...authors) {
   console.log(`The book "${title}" has ${authors.length} authors`);
 }
 printBookAuthorsCount("Algorithms", "Robert Sedgewick", "Kevin Wayne");
+
+function hasExamplesInJava({ ...book }) {
+  console.log(book.programmingLanguage === "Java" || "no data available");
+}
+
+hasExamplesInJava(books[1]);
+
+// books.forEach(
+//   (element) =>
+//     element.onlineContent &&
+//     console.log(`"${element.title}" provides online content`)
+// );
+
+// books.forEach((element) => {
+//   element.onlineContent ??
+//     console.log(`${element.title} provides no data about its online content`);
+// });
+
+// books.forEach((element) => {
+//   element.edition ||= 1;
+// });
+// console.log(books[5]);
+
+books.forEach((element) => {
+  element.highlighted &&= !(element.thirdParty.goodreads.rating < 4.2);
+});
+console.log(books[7]);

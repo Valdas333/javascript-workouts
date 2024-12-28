@@ -107,7 +107,7 @@ const obj = { a: 23, b: 7, c: 14 };
 const {
   fri: { open: o, close: c },
 } = openingHours;
-// console.log(o, c);
+console.log(o, c);
 
 // Spread
 
