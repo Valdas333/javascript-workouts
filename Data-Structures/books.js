@@ -306,7 +306,91 @@ hasExamplesInJava(books[1]);
 // });
 // console.log(books[5]);
 
-books.forEach((element) => {
-  element.highlighted &&= !(element.thirdParty.goodreads.rating < 4.2);
-});
-console.log(books[7]);
+// books.forEach((element) => {
+//   element.highlighted &&= !(element.thirdParty.goodreads.rating < 4.2);
+// });
+// console.log(books[7]);
+
+function sumAllBookPages() {
+  let pageSum = 0;
+  for (const book of books) {
+    pageSum += book.pages;
+  }
+  console.log(pageSum);
+}
+
+function getAllBookAuthors() {
+  const allAuthors = [];
+
+  for (const book of books) {
+    if (typeof book.author === "string") {
+      allAuthors.push(book.author);
+    } else {
+      allAuthors.push(...book.author);
+    }
+  }
+
+  for (const [index, author] of allAuthors.entries()) {
+    console.log(`${index + 1}. ${author}`);
+  }
+}
+
+function createBookObject() {
+  const bookData = [
+    ["title", "Computer Networking: A Top-Down Approach"],
+    ["author", ["James F. Kurose", "Keith W. Ross"]],
+    ["publisher", "Addison Wesley"],
+  ];
+
+  const newBook = {
+    [bookData[0][0]]: bookData[0][1],
+    [bookData[1][0]]: bookData[1][1],
+    [bookData[2][0]]: bookData[2][1],
+  };
+
+  console.log(newBook);
+}
+function addBookProperty() {
+  const pages = 880;
+
+  const newBook2 = {
+    title: "The C Programming Language",
+    author: ["Brian W. Kernighan", "Dennis M. Ritchie"],
+    pages,
+  };
+  console.log(newBook2);
+}
+
+function getFirstKeyword(book) {
+  console.log(book.keywords?.[0]);
+}
+
+function ratingEntries() {
+  const entries = [];
+  const entries2 = Object.entries(books[0].thirdParty.goodreads);
+
+  for (const rating of Object.keys(books[0].thirdParty.goodreads)) {
+    entries.push([rating]);
+  }
+
+  for (const [index, value] of Object.values(
+    books[0].thirdParty.goodreads
+  ).entries()) {
+    entries[index].push(value);
+  }
+  console.log(entries);
+  console.log(entries2);
+}
+
+//SETS
+
+const allKeywords = [];
+
+for (const book of books) {
+  allKeywords.push(...book.keywords);
+}
+
+const uniqueKeywords = new Set(allKeywords);
+uniqueKeywords.add("coding");
+
+console.log([...uniqueKeywords]);

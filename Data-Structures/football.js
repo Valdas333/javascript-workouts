@@ -70,3 +70,22 @@ console.log(
 // team1 < team2 && console.log(game.team1);
 // team1 > team2 && console.log(game.team2);
 console.log(players1);
+
+for (const [index, player] of game.scored.entries()) {
+  console.log(`Goal ${index + 1}: ${player}`);
+}
+
+console.log(`Odd of victory ${game.team1} ${game.odds.team1}`);
+
+const scorers = {};
+
+for (const player of game.scored) {
+  // scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+  if (Object.keys(scorers).includes(player)) {
+    scorers[player]++;
+  } else {
+    scorers[player] = 1;
+  }
+}
+
+console.log(scorers);
